@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calculator, Columns, Award, Calendar, CheckCircle, Star } from "lucide-react";
+import { Calculator, Columns, Award, CheckCircle, Star } from "lucide-react";
 
-type ActiveTab = "visa" | "compare" | "scholarship" | "booking";
+type ActiveTab = "visa" | "compare" | "scholarship";
 
 export default function InteractiveTools() {
   const [activeTab, setActiveTab] = useState<ActiveTab>("visa");
@@ -108,19 +108,6 @@ export default function InteractiveTools() {
     setScholarshipSearched(true);
   };
 
-  // --- 4. Booking Calendar State ---
-  const [bookingDate, setBookingDate] = useState("");
-  const [bookingTime, setBookingTime] = useState("");
-  const [bookingType, setBookingType] = useState("");
-  const [bookingSubmitted, setBookingSubmitted] = useState(false);
-
-  const handleBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (bookingDate && bookingTime && bookingType) {
-      setBookingSubmitted(true);
-    }
-  };
-
   return (
     <section id="tools" className="py-24 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,8 +130,7 @@ export default function InteractiveTools() {
           {[
             { id: "visa", name: "Visa Checker", icon: Calculator },
             { id: "compare", name: "Compare Countries", icon: Columns },
-            { id: "scholarship", name: "Scholarship Finder", icon: Award },
-            { id: "booking", name: "Book Consultation", icon: Calendar }
+            { id: "scholarship", name: "Scholarship Finder", icon: Award }
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -166,7 +152,7 @@ export default function InteractiveTools() {
         </div>
 
         {/* Tab Contents */}
-        <div className="bg-card border border-card-border rounded-3xl p-6 sm:p-10 shadow-xl min-h-[400px] flex flex-col justify-center max-w-4xl mx-auto relative overflow-hidden">
+        <div className="bg-card border border-card-border rounded-3xl p-6 sm:p-10 shadow-xl min-h-100 flex flex-col justify-center max-w-4xl mx-auto relative overflow-hidden">
           
           <AnimatePresence mode="wait">
             
@@ -486,117 +472,6 @@ export default function InteractiveTools() {
                         </p>
                       </div>
                     )}
-                  </div>
-                )}
-              </motion.div>
-            )}
-
-            {/* 4. Appointment Booking Tab */}
-            {activeTab === "booking" && (
-              <motion.div
-                key="booking-tab"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="space-y-6"
-              >
-                {!bookingSubmitted ? (
-                  <form onSubmit={handleBooking} className="space-y-5">
-                    <h3 className="font-heading font-extrabold text-lg sm:text-xl text-foreground flex items-center gap-2">
-                      <Calendar className="text-primary w-5 h-5" />
-                      <span>Counselor Scheduling Board</span>
-                    </h3>
-                    <p className="text-xs text-muted-text">
-                      Reserve a 1-on-1 virtual video conference or physical desk slot with an immigration counselor.
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {/* Date */}
-                      <div className="space-y-1">
-                        <label className="text-[10px] uppercase font-bold text-muted-text">Select Date</label>
-                        <input
-                          type="date"
-                          value={bookingDate}
-                          onChange={(e) => setBookingDate(e.target.value)}
-                          required
-                          className="w-full bg-muted-bg border border-card-border rounded-xl px-3 py-2 text-xs sm:text-sm text-foreground focus:outline-none"
-                        />
-                      </div>
-
-                      {/* Time */}
-                      <div className="space-y-1">
-                        <label className="text-[10px] uppercase font-bold text-muted-text">Time Slot</label>
-                        <select
-                          value={bookingTime}
-                          onChange={(e) => setBookingTime(e.target.value)}
-                          required
-                          className="w-full bg-muted-bg border border-card-border rounded-xl px-3 py-2.5 text-xs sm:text-sm text-foreground focus:outline-none"
-                        >
-                          <option value="">Select Time</option>
-                          <option value="10:00 AM">10:00 AM - 10:30 AM</option>
-                          <option value="11:30 AM">11:30 AM - 12:00 PM</option>
-                          <option value="02:30 PM">02:30 PM - 03:00 PM</option>
-                          <option value="04:00 PM">04:00 PM - 04:30 PM</option>
-                        </select>
-                      </div>
-
-                      {/* Advisor Type */}
-                      <div className="space-y-1">
-                        <label className="text-[10px] uppercase font-bold text-muted-text">Counselor Specialty</label>
-                        <select
-                          value={bookingType}
-                          onChange={(e) => setBookingType(e.target.value)}
-                          required
-                          className="w-full bg-muted-bg border border-card-border rounded-xl px-3 py-2.5 text-xs sm:text-sm text-foreground focus:outline-none"
-                        >
-                          <option value="">Select Category</option>
-                          <option value="Study Abroad">Study Abroad Advisor</option>
-                          <option value="Visa Processing">Visa Expert</option>
-                          <option value="PR Immigration">ICCRC PR Counsel</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md shadow-primary/10 cursor-pointer"
-                    >
-                      <span>Reserve Consultation Slot</span>
-                    </button>
-                  </form>
-                ) : (
-                  <div className="text-center space-y-6 py-6">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto shadow-inner">
-                      <CheckCircle className="w-10 h-10 animate-bounce" />
-                    </div>
-
-                    <div className="space-y-2">
-                      <h4 className="font-heading font-extrabold text-lg text-foreground">
-                        Appointment Confirmed!
-                      </h4>
-                      <p className="text-xs sm:text-sm text-muted-text max-w-md mx-auto leading-relaxed">
-                        Your appointment has been reserved for <span className="font-bold text-foreground">{bookingDate}</span> at <span className="font-bold text-foreground">{bookingTime}</span> with our <span className="font-bold text-foreground">{bookingType}</span> team.
-                      </p>
-                    </div>
-
-                    <div className="p-4 bg-muted-bg rounded-2xl border border-card-border/80 inline-block text-[11px] font-semibold text-muted-text uppercase tracking-widest leading-relaxed">
-                      A Google Meet link and calendar invitation <br /> have been dispatched to your email.
-                    </div>
-
-                    <div className="pt-2">
-                      <button
-                        onClick={() => {
-                          setBookingDate("");
-                          setBookingTime("");
-                          setBookingType("");
-                          setBookingSubmitted(false);
-                        }}
-                        className="text-xs text-primary font-bold hover:underline cursor-pointer"
-                      >
-                        Modify slot or book another slot
-                      </button>
-                    </div>
                   </div>
                 )}
               </motion.div>

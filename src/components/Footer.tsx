@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { Globe, MapPin, Phone, Mail, ArrowUp } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
+
+import Logo from "./Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -42,7 +44,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
-                <Globe className="w-5 h-5" />
+                <Logo className="scale-[0.55] origin-center" />
               </div>
               <span className="font-heading font-extrabold text-lg tracking-tight flex flex-col">
                 <span className="text-foreground">SEREN</span>

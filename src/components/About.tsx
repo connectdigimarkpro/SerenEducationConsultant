@@ -31,13 +31,11 @@ export default function About() {
     {
       name: "Baldish Singh",
       role: "Founder & Chief Counselor",
-      qualifications: "M.S. in Education Administration (UK)",
       bio: "Baldish has over 12 years of experience in higher education consulting and has personally mentored over 2,000 students."
     },
     {
       name: "Deep Kaur",
       role: "CEO & Head of Visa & Immigration",
-      qualifications: "Regulated Canadian Immigration Consultant (RCIC)",
       bio: "Deep specializes in student visas, express entry pathways, and work permits with a stellar 98.4% success record."
     }
   ];
@@ -122,9 +120,6 @@ export default function About() {
                       {member.name}
                     </h4>
                     <p className="text-xs font-bold text-primary">{member.role}</p>
-                    <p className="text-[10px] text-muted-text font-semibold uppercase tracking-wider bg-muted-bg py-0.5 px-2 rounded inline-block">
-                      {member.qualifications}
-                    </p>
                   </div>
 
                   <p className="text-xs text-muted-text leading-relaxed italic pt-2">
