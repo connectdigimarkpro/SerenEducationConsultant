@@ -17,6 +17,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Seren Education Consultants | Gateway to Global Education & Immigration",
   description: "Expert immigration and overseas education consultancy. Helping students and professionals achieve dreams of studying, working, and settling abroad with personalized guidance and 95% visa success rate.",
+  icons: {
+    icon: "/Images/Logo.png",
+    shortcut: "/Images/Logo.png",
+    apple: "/Images/Logo.png",
+  },
   keywords: [
     "study abroad",
     "immigration consultancy",
