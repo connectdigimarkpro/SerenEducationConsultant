@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "+919876543210"; // Placeholder consultant number
+  const phoneNumber = "919056290628";
   const message = encodeURIComponent(
     "Hi Seren Education Consultants, I visited your website and would like to schedule a free consultation regarding overseas study/immigration opportunities."
   );
