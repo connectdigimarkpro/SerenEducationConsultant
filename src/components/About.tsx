@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CheckCircle2, Award, Briefcase, GraduationCap, Scale } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const benefits = [
@@ -31,11 +32,13 @@ export default function About() {
     {
       name: "Baldish Singh",
       role: "Founder & Chief Counselor",
+      photo: "/Images/Founderr.jpg",
       bio: "Baldish has over 12 years of experience in higher education consulting and has personally mentored over 2,000 students."
     },
     {
       name: "Deep Kaur",
       role: "CEO & Head of Visa & Immigration",
+      photo: "/Images/CEO.jpeg",
       bio: "Deep specializes in student visas, express entry pathways, and work permits with a stellar 98.4% success record."
     }
   ];
@@ -100,38 +103,74 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {team.map((member, idx) => (
               <div
                 key={idx}
-                className="relative bg-card border border-card-border rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:scale-[1.02] hover:shadow-xl transition-all duration-300 group"
+                className="relative overflow-hidden bg-card border border-card-border rounded-4xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"
               >
                 {/* Accent Top Border */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-rose-600 rounded-t-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-primary to-rose-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
-                <div className="space-y-4">
-                  {/* Avatar Placeholder */}
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center font-heading font-extrabold text-2xl text-primary border border-primary/20 shadow-inner">
-                    {member.name.split(" ").map((n) => n[0]).join("")}
+                <div className="relative h-105 sm:h-120">
+                  {member.photo ? (
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      loading={member.name === "Baldish Singh" ? "eager" : "lazy"}
+                      priority={member.name === "Baldish Singh"}
+                      className={`transition-transform duration-700 ${member.name === "Deep Kaur" ? "object-contain bg-muted-bg" : "object-cover object-center group-hover:scale-105"}`}
+                      style={{
+                        objectPosition:
+                          member.name === "Deep Kaur"
+                            ? "center top"
+                            : member.name === "Baldish Singh"
+                              ? "center top"
+                              : "center center"
+                      }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-linear-to-b from-muted-bg via-card to-card flex items-center justify-center text-center p-8">
+                      <div className="space-y-3 max-w-sm">
+                        <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-extrabold">
+                          {member.name.charAt(0)}
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="font-heading font-extrabold text-2xl text-foreground">
+                            {member.name}
+                          </h4>
+                          <p className="text-sm font-semibold text-muted-text">
+                            {member.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/82 via-black/30 to-black/10" />
+
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white">
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
+                        Consultant Verified
+                      </div>
+
+                      <div className="space-y-1">
+                        <h4 className="font-heading font-extrabold text-2xl sm:text-3xl leading-tight">
+                          {member.name}
+                        </h4>
+                        <p className="text-sm sm:text-base font-semibold text-white/85">
+                          {member.role}
+                        </p>
+                      </div>
+
+                      <p className="text-sm text-white/80 leading-relaxed max-w-md">
+                        {member.bio}
+                      </p>
+                    </div>
                   </div>
-
-                  <div className="space-y-1">
-                    <h4 className="font-heading font-extrabold text-lg text-foreground">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs font-bold text-primary">{member.role}</p>
-                  </div>
-
-                  <p className="text-xs text-muted-text leading-relaxed italic pt-2">
-                    &ldquo;{member.bio}&rdquo;
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-card-border/50 mt-6 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-foreground/80">
-                    Consultant Verified
-                  </span>
                 </div>
               </div>
             ))}
