@@ -11,6 +11,7 @@ interface ContactFormProps {
 
 export default function ContactForm({ selectedCountry, setSelectedCountry }: ContactFormProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const whatsappNumber = "919056290628";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,9 +62,11 @@ export default function ContactForm({ selectedCountry, setSelectedCountry }: Con
       alert("Please fill in all required fields.");
       return;
     }
-    const subject = encodeURIComponent(`New consultation request from ${formData.name}`);
-    const body = encodeURIComponent(
+    const message = encodeURIComponent(
       [
+        `Hi Seren Education Consultants,`,
+        `I would like to book a free consultation.`,
+        ``,
         `Name: ${formData.name}`,
         `Email: ${formData.email}`,
         `Phone: ${formData.phone}`,
@@ -72,9 +75,9 @@ export default function ContactForm({ selectedCountry, setSelectedCountry }: Con
         `Message: ${formData.message || "-"}`
       ].join("\n")
     );
-    const mailtoLink = `mailto:info@sereneducation.com?subject=${subject}&body=${body}`;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
     setFormSubmitted(true);
-    window.location.href = mailtoLink;
+    window.open(whatsappLink, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -309,7 +312,7 @@ export default function ContactForm({ selectedCountry, setSelectedCountry }: Con
                         Consultation Requested!
                       </h3>
                       <p className="text-sm text-muted-text max-w-md mx-auto leading-relaxed">
-                        Thank you, <span className="font-bold text-foreground">{formData.name}</span>. Your email draft has been prepared with your request details (<span className="font-bold text-foreground">{formData.country} - {formData.service}</span>). Please send it from your mail app.
+                        Thank you, <span className="font-bold text-foreground">{formData.name}</span>. Your WhatsApp message has been prepared with your request details (<span className="font-bold text-foreground">{formData.country} - {formData.service}</span>). Please send it in WhatsApp to complete the request.
                       </p>
                     </div>
                     <div className="p-4 bg-muted-bg rounded-2xl border border-card-border inline-block text-[11px] font-semibold text-muted-text uppercase tracking-widest">
