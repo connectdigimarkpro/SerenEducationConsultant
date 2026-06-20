@@ -72,7 +72,7 @@ export default function SuccessStories() {
   const stats = [
     { label: "Visa Approvals", value: "95%+", icon: ShieldCheck, desc: "Highest industry rate" },
     { label: "Clients Helped", value: "5,000+", icon: Users, desc: "Global relocations" },
-    { label: "Countries Served", value: "10+", icon: Globe, desc: "Study & Work tracks" },
+    { label: "Countries Served", value: "10+", icon: Globe, desc: "Global Study pathways" },
     { label: "Expert Advisory", value: "12+", icon: Award, desc: "Certified Consultants" }
   ];
 

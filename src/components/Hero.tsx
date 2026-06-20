@@ -74,7 +74,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-muted-text max-w-2xl leading-relaxed font-normal"
             >
-              Helping students and professionals achieve their dreams of studying, working, and settling abroad with expert guidance, simplified visa applications, and proven success.
+              Helping students and professionals achieve their dreams of studying and settling abroad with expert guidance, simplified visa applications, and proven success.
             </motion.p>
 
             <motion.div

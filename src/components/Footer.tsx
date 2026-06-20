@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
 
 import Logo from "./Logo";
@@ -54,14 +55,14 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted-text leading-relaxed">
-              Helping students and professionals achieve their dreams of studying, working, and settling abroad with expert guidance, verified pathways, and proven success.
+              Helping students and professionals achieve their dreams of studying and settling abroad with expert guidance, verified pathways, and proven success.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
               {[
                 { 
                   name: "Facebook", 
-                  href: "https://facebook.com", 
+                  href: "https://www.facebook.com/profile.php?id=61553404400767&mibextid=wwXIfr&rdid=n1cpkik6vVXHaPqq&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17NYYe9pR3%2F%3Fmibextid%3DwwXIfr#", 
                   className: "bg-[#1877F2] text-white border-[#1877F2]/40 hover:bg-[#145dc8] hover:border-[#145dc8]",
                   svg: <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg> 
                 },
@@ -79,7 +80,7 @@ export default function Footer() {
                 },
                 { 
                   name: "LinkedIn", 
-                  href: "https://linkedin.com", 
+                  href: "https://www.linkedin.com/company/seren-education-consultants/", 
                   className: "bg-[#0A66C2] text-white border-[#0A66C2]/40 hover:bg-[#084f97] hover:border-[#084f97]",
                   svg: <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> 
                 }
@@ -193,13 +194,18 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-card-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-text text-center sm:text-left">
-            &copy; {currentYear} Seren Education Consultants. All rights reserved. 
-            Designed for trust, built for success.
-          </p>
+          <div className="flex flex-col gap-1 text-center sm:text-left">
+            <p className="text-xs text-muted-text">
+              &copy; {currentYear} Seren Education Consultants. All rights reserved. 
+              Designed for trust, built for success.
+            </p>
+            <p className="text-[11px] text-muted-text/80 font-medium">
+              Powered by <a href="https://digimarkpro.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-all">DigiMark Pro</a>
+            </p>
+          </div>
           <div className="flex items-center gap-6 text-xs text-muted-text">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
             <button
               onClick={handleScrollToTop}
               className="p-2.5 rounded-xl bg-muted-bg hover:bg-primary hover:text-white border border-card-border hover:border-primary transition-all duration-300 flex items-center gap-1 group cursor-pointer"

@@ -39,7 +39,7 @@ export default function About() {
       name: "Deep Kaur",
       role: "CEO & Head of Visa & Immigration",
       photo: "/Images/CEO.jpeg",
-      bio: "Deep specializes in student visas, express entry pathways, and work permits with a stellar 98.4% success record."
+      bio: "Deep specializes in student visas, express entry pathways, and university admissions with a stellar 98.4% success record."
     }
   ];
 

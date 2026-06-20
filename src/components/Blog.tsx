@@ -27,7 +27,7 @@ export default function Blog() {
     },
     {
       id: "2",
-      title: "New UK Student Work Visa Policies: What You Need to Know",
+      title: "New UK Student & Graduate Visa Policies: What You Need to Know",
       category: "UK Visa",
       date: "June 08, 2026",
       readTime: "5 min read",
@@ -125,7 +125,7 @@ export default function Blog() {
             </p>
           </div>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/sereneducation/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary hover:bg-primary-hover text-white px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all cursor-pointer whitespace-nowrap"

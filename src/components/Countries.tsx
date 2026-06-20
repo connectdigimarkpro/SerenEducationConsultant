@@ -23,7 +23,7 @@ export default function Countries({ onSelectCountry }: CountriesProps) {
       name: "Australia",
       flag: "🇦🇺",
       image: "/Countries/australia.png",
-      desc: "Warm climate, beautiful beaches, and high-ranking universities. Offers up to 4-year post-study work visa.",
+      desc: "Warm climate, beautiful beaches, and high-ranking universities. Offers up to 4-year post-study work rights.",
       programs: ["Information Technology", "Health & Nursing", "MBA & Accounting"],
       badge: "No GRE Required",
       landmark: "Sydney Opera House"

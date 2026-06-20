@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GraduationCap, Briefcase, Compass, ShieldCheck, Building2, Heart, CheckCircle2 } from "lucide-react";
+import { GraduationCap, BookOpen, Compass, ShieldCheck, Building2, Heart, CheckCircle2 } from "lucide-react";
 
 export default function Services() {
   const serviceCategories = [
@@ -12,10 +12,10 @@ export default function Services() {
       details: ["University Seat Booking", "Admission Essays & SOP", "GIC & Blocked Account Setup", "Visa Interview Preparation"]
     },
     {
-      title: "Work Visa",
-      icon: Briefcase,
-      description: "Secure employment authorization, skilled worker permits, and employer-sponsored work visas worldwide.",
-      details: ["Job Offer Validation", "LMIA & Employer Sponsorship", "Intra-Company Transfers", "Skilled Migration Filings"]
+      title: "IELTS & PTE Coaching",
+      icon: BookOpen,
+      description: "Achieve top band scores with certified trainers, customized study materials, and rigorous mock test series.",
+      details: ["IELTS Academic & General", "PTE Academic Training", "1-on-1 Speaking Practice", "Mock Exams & Score Analytics"]
     },
     {
       title: "Tourist Visa",
@@ -39,7 +39,7 @@ export default function Services() {
       title: "Family Sponsorship",
       icon: Heart,
       description: "Reunite with your loved ones abroad through spouse sponsorship, parent & grandparent visas, and dependency claims.",
-      details: ["Spouse Open Work Permits", "Family Reunification Filings", "Super Visa Applications", "Financial Sponsorship Audits"]
+      details: ["Spouse Visa Lodgment", "Family Reunification Filings", "Super Visa Applications", "Financial Sponsorship Audits"]
     }
   ];
 
